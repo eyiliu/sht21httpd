@@ -88,6 +88,7 @@ void read_sht21(std::atomic_uchar &run){
   for(uint32_t i=0; i<gpio.size(); i++){
     std::ofstream of_dir(gpio_str+std::to_string(gpio[i])+"/direction");
     of_dir << "out";
+    of_dir.close();
     std::this_thread::sleep_for (std::chrono::seconds(1));
     std::ofstream of_val(gpio_str+std::to_string(gpio[i])+"/value");
     if(i == 0)
